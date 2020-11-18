@@ -68,7 +68,7 @@ def demandeTemps(temps):
     return temps
 
 
-def sommeTemps(temps1,temps2):
+def sommeTemps(temps1, temps2):
     
     temps = [0, 0, 0, 0]
 
@@ -81,7 +81,7 @@ def sommeTemps(temps1,temps2):
     return temps
 
 
-def proportionTemps(temps, proportion):#Sert a calculer une proportion de temp
+def proportionTemps(temps, proportion): # Sert a calculer une proportion de temp
 
     proTemps = [0, 0, 0, 0] 
 
