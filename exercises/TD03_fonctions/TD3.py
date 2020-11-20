@@ -146,6 +146,8 @@ def afficheDate(date):
 
 def nombreBisextile(jour):
 
+    """ Donne le nombre d'année bisextile pour un nombre de jour donné """
+
     Year = (jour // 365)
     N = 0
 
@@ -175,5 +177,3 @@ def tempsEnDateBisextile(temps):
     temps = tempsEnDate(temps)
 
     return temps
-
-
