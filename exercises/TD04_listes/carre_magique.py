@@ -94,7 +94,7 @@ print(estCarreMagique(carre_pas_mag))
 
 
 def estNormal(carre):
-    """ Retourne True si contient toutes les valeurs de 1 à n^2 où n est la taille 
+    """ Retourne True si contient toutes les valeurs de 1 à n^2 où n est la taille
         du carré, et False sinon """
     liste = [1 + i for i in range((len(carre)) ** 2)]
     liste2 = []
@@ -108,7 +108,7 @@ def estNormal(carre):
 
     if liste == liste2:
         return True
-    
+
     return False
 
 
