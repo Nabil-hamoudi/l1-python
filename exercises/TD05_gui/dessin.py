@@ -3,6 +3,7 @@ import tkinter as tk
 
 color = "red"
 
+
 def dessinCercle():
     """dessine un cercle"""
     taille = []
@@ -11,7 +12,7 @@ def dessinCercle():
     for i in range(4):
         taille.append(random.randint(0, 400))
 
-    Cercle = background.create_oval(taille[0], taille[1], taille[2], taille[3], outline=color)
+    background.create_oval(taille[0], taille[1], taille[2], taille[3], outline=color)
 
     pass
 
@@ -23,7 +24,7 @@ def dessinCarre():
     for i in range(4):
         taille.append(random.randint(0, 400))
 
-    Carre = background.create_rectangle(taille[0], taille[1], taille[2], taille[3], outline=color)
+    background.create_rectangle(taille[0], taille[1], taille[2], taille[3], outline=color)
 
     pass
 
@@ -38,7 +39,7 @@ def dessinCroix():
 
     taille2 = [taille[2], taille[1], taille[0], taille[3]]
 
-    Croix = (background.create_line(taille, fill=color), background.create_line(taille2, fill=color))
+    (background.create_line(taille, fill=color), background.create_line(taille2, fill=color))
 
     pass
 
@@ -53,7 +54,7 @@ def ColorChange():
 racine = tk.Tk()
 
 background = tk.Canvas(racine, width="400", height="400", bg="black",
-    relief='ridge', borderwidth=12)
+relief='ridge', borderwidth=12)
 
 background.grid(column=1, row=1, rowspan=4)
 
