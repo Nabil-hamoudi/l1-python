@@ -1,7 +1,7 @@
 import random
 import tkinter as tk
 
-color = "red"
+color = "blue"
 
 
 def dessinCercle():
@@ -12,7 +12,7 @@ def dessinCercle():
     for i in range(4):
         taille.append(random.randint(0, 400))
 
-    background.create_oval(taille[0], taille[1], taille[2], taille[3], outline=color)
+    background.create_oval(taille, outline=color)
 
     pass
 
@@ -21,10 +21,11 @@ def dessinCarre():
     """dessine un carre"""
     global color
     taille = []
-    for i in range(4):
+    for i in range(2):
         taille.append(random.randint(0, 400))
 
-    background.create_rectangle(taille[0], taille[1], taille[2], taille[3], outline=color)
+    background.create_rectangle(
+        taille[0] + 100, taille[1] + 100, taille[0], taille[1], outline=color)
 
     pass
 
@@ -35,11 +36,12 @@ def dessinCroix():
     global color
 
     for i in range(4):
-        taille.append(random.randint(0, 400))
+        taille.append(random.randint(0, 100))
 
     taille2 = [taille[2], taille[1], taille[0], taille[3]]
 
-    (background.create_line(taille, fill=color), background.create_line(taille2, fill=color))
+    background.create_line(taille, fill=color)
+    background.create_line(taille2, fill=color)
 
     pass
 
@@ -53,16 +55,22 @@ def ColorChange():
 
 racine = tk.Tk()
 
-background = tk.Canvas(racine, width="400", height="400", bg="black",
-relief='ridge', borderwidth=12)
+background = tk.Canvas(
+    racine, width="400", height="400", bg="black", relief='ridge',
+    borderwidth=12)
 
 background.grid(column=1, row=1, rowspan=4)
 
 
-ChangeColor = tk.Button(racine, text="Changer la couleur", font=("helvetica", "10"), command=ColorChange)
-Cercle = tk.Button(racine, text="Cercle", font=("helvetica", "10"), command=dessinCercle)
-Carre = tk.Button(racine, text="Carre", font=("helvetica", "10"), command=dessinCarre)
-Croix = tk.Button(racine, text="Croix", font=("helvetica", "10"), command=dessinCroix)
+ChangeColor = tk.Button(
+    racine, text="Changer la couleur", font=("helvetica", "10"),
+    command=ColorChange)
+Cercle = tk.Button(
+    racine, text="Cercle", font=("helvetica", "10"), command=dessinCercle)
+Carre = tk.Button(
+    racine, text="Carre", font=("helvetica", "10"), command=dessinCarre)
+Croix = tk.Button(
+    racine, text="Croix", font=("helvetica", "10"), command=dessinCroix)
 
 Cercle.grid(column=0, row=1, rowspan=1)
 Carre.grid(column=0, row=2, rowspan=1)
