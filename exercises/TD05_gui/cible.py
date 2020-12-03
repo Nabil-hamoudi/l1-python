@@ -25,7 +25,6 @@ for i in range(nbr):
 
     x = taille[0] - (i * adj_coordone1)
     y = taille[1] - (i * adj_coordone2)
-    print(y, x)
 
     background.create_oval(
         i * adj_coordone1, i * adj_coordone2, x, y, outline=color[0],
