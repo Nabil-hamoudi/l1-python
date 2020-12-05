@@ -64,6 +64,7 @@ def testDiagonalesEgales(carre):
 
     return -1
 
+
 print(testDiagonalesEgales(carre_mag))
 print(testDiagonalesEgales(carre_pas_mag))
 

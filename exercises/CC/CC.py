@@ -1,23 +1,8 @@
-def AfficheValeur(a):
-    """ Affiche la valeur de a en fonction de son argument """
-    if a < 0:
-        for i in range(3):
-            a -= 7
-            print(a)
-    else:
-        print(1)
+def carre_decroissant(n):
+    a = []
+    for i in range(1, n+1):
+        temp = list(range(n+1-i, 2*n-1*i+1))
+        a.append(temp)
+    return a
 
-    pass
-
-
-help(AfficheValeur)
-
-
-def Coordonne(prenom, nom):
-    """ print des coordonnées """
-    nom = "Dupont"
-    ville = "Paris"
-
-    print(prenom + nom + " habite à ville " + ville)
-
-    pass
+print(carre_decroissant(10))
