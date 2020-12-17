@@ -36,7 +36,7 @@ def dessinCroix():
     global color
 
     for i in range(4):
-        taille.append(random.randint(0, 100))
+        taille.append(random.randint(0, 400))
 
     taille2 = [taille[2], taille[1], taille[0], taille[3]]
 
