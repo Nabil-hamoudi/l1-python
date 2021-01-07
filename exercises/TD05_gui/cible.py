@@ -4,7 +4,7 @@ color = ["blue", "green", "black", "yellow", "magenta", "red"]
 
 nbr = int(input("choississez le nombre de cercle"))
 
-taille = ((int(input("choisissez votre résolution"))))
+taille = int(input("choisissez votre résolution"))
 
 racine = tk.Tk()
 
