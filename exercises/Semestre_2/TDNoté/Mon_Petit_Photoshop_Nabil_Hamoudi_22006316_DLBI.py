@@ -1,7 +1,7 @@
 import tkinter as tk
 import PIL as pil
 from PIL import Image
-from PIL import ImageTk 
+from PIL import ImageTk
 from tkinter import filedialog
 from tkinter import simpledialog
 
@@ -81,7 +81,7 @@ def negatif():
         for j in range(nbrCol(mat)):
             mat[i][j]=(255-mat[i][j][0],255-mat[i][j][1],255-mat[i][j][2],255)
     modify(mat)
-            
+
 
 def symetrique():
     mat = loading(nomImgCourante)
@@ -111,6 +111,7 @@ def gris():
 def quitter():
     racine.destroy()
     pass
+
 
 racine = tk.Tk()
 racine.title("Mon petit photoshop")
