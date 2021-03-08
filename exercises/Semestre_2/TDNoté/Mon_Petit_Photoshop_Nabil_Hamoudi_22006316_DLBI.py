@@ -68,7 +68,7 @@ def modify(matrice):
 
 
 def filtre_vert():
-    loading(nomImgModif)
+    mat = loading(nomImgCourante)
     for i in range(nbrLig(mat)):
         for j in range(nbrCol(mat)):
             mat[i][j]=(0,mat[i][j][1],0,255)
@@ -76,7 +76,7 @@ def filtre_vert():
 
 
 def negatif():
-    loading(nomImgModif)
+    mat = loading(nomImgCourante)
     for i in range(nbrLig(mat)):
         for j in range(nbrCol(mat)):
             mat[i][j]=(255-mat[i][j][0],255-mat[i][j][1],255-mat[i][j][2],255)
@@ -84,7 +84,7 @@ def negatif():
             
 
 def symetrique():
-    loading(nomImgModif)
+    mat = loading(nomImgCourante)
     matSym=[[(0,0,0,0)]*nbrCol(mat) for k in range(nbrLig(mat))]
     for i in range(nbrLig(mat)):
         for j in range(nbrCol(mat)):
@@ -95,17 +95,42 @@ def symetrique():
     modify(mat)
 
 
-def gris(mat):
+def gris():
     #On utilisera la conversion CIE709 qui permet de calculer la teinte de gris qui va être affichée dans le pixel
     #La teinte affichée est : gris=0,2125*rouge + 0,0721*bleu + 0,7154*vert
+    mat = loading(nomImgCourante)
     res = []
     for i in mat:
         for n in range(nbrCol(mat)):
             TeinteGris = int(i[n][0] * 0.2125 + i[n][1] * 0.0721 + 0.7154 * i[n][2])
             i[n] = (TeinteGris, TeinteGris, TeinteGris, 255)
         res.append(i)
-    return res
-mat = loading("tomate.png")
-saving(gris(mat), "tomategrise.png") 
+    modify(mat)
 
 
+def quitter():
+    racine.destroy()
+    pass
+
+racine = tk.Tk()
+racine.title("Mon petit photoshop")
+
+Boutton_charger = tk.Button(racine, text="CHARGER", command=lambda: charger(racine))
+Boutton_negatif = tk.Button(racine, text="NEGATIF", command=negatif)
+Boutton_symetrique = tk.Button(racine, text="SYMETRIE", command=symetrique)
+Boutton_gris = tk.Button(racine, text="GRIS", command=gris)
+Boutton_quit = tk.Button(racine, text="QUITTER", command=quitter)
+Boutton_vert = tk.Button(racine, text="FILTRE VERT", command=filtre_vert)
+image = tk.Canvas(racine, height=300, width=300, bg="black")
+texte = tk.Label(racine, text="HAMOUDI Nabil 22006316")
+
+image.grid(column=1, rowspan=4)
+Boutton_gris.grid(row=0)
+Boutton_symetrique.grid(row=1)
+Boutton_negatif.grid(row=2)
+Boutton_charger.grid(row=4)
+Boutton_vert.grid(row=3)
+Boutton_quit.grid(row=4, column=2)
+texte.grid(row=4, column=1)
+
+racine.mainloop()
