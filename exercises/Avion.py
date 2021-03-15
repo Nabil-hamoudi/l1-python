@@ -36,6 +36,7 @@ startairport = "LGA"
 
 possibleroute = []
 
+
 for i in route:
     A = i.count(startairport)
     if A != 1:
