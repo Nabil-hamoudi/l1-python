@@ -5,7 +5,8 @@ import tkinter as tk
 
 LARGEUR = 600
 HAUTEUR = 400
-
+RAYON_BALLE = 20
+COLOR_BALLE = "red"
 
 ###################
 # Fonctions
@@ -13,31 +14,30 @@ HAUTEUR = 400
 def creer_balle():
     """Dessine un rond bleu et retourne son identifiant
      et les valeurs de déplacements dans une liste"""
-    x, y = LARGEUR // 2, HAUTEUR // 2
-    dx, dy = 3, 5
-    rayon = 20
-    cercle = canvas.create_oval((x-rayon, y-rayon),
-                                (x+rayon, y+rayon),
-                                fill="blue")
+    global HAUTEUR, LARGEUR, RAYON_BALLE, COLOR_BALLE
+    dx, dy = LARGEUR / 100, HAUTEUR / 100
+    x, y = LARGEUR / 2, HAUTEUR / 2
+    cercle = canvas.create_oval(x - RAYON_BALLE, y - RAYON_BALLE, x + RAYON_BALLE, y + RAYON_BALLE, fill= COLOR_BALLE)
     return [cercle, dx, dy]
 
 
 def mouvement():
     """Déplace la balle et ré-appelle la fonction avec un compte-à-rebours"""
+    global balle
     rebond()
     canvas.move(balle[0], balle[1], balle[2])
-    canvas.after(100, mouvement)
+    canvas.after(20, mouvement)
 
 
 def rebond():
     """Fait rebondir la balle sur les bords du canevas"""
     global balle, HAUTEUR, LARGEUR
-    x0, y0, x1, y1 = canvas.coords(balle[0])
-    if x0 <= 0 or x1 >= LARGEUR:
-        balle[1] = -balle[1]
-    if y0 <= 0 or y1 >= HAUTEUR:
-        balle[2] = -balle[2]
-
+    x1, y1, x2, y2 = canvas.coords(balle[0])
+    if x1 <= 0 or x2 >= LARGEUR:
+        balle[1] *= -1
+    elif y1 <= 0 or y2 >= HAUTEUR:
+        balle[2] *= -1
+    
 
 ######################
 # programme principal
